@@ -9,6 +9,15 @@ public class Company{
 
 
     //Constructor method
+    /**
+    * Description: this is the method to create a Company, the company is created 
+    when it rents a mini room
+    * @param nit String, 
+    * @param companyName String, 
+    * @param day int, represents the day when the mini room was rented
+    * @param month int, represents the month when the mini room was rented
+    * @param year int, represents the year when the mini room was rented
+    */
 	public Company(String nit, String companyName, int day, int month, int year){
 		this.nit = nit;
 		this.companyName = companyName;
@@ -38,6 +47,13 @@ public class Company{
 		rentalDate.setYear(year);
 	}
 
+
+	//Name: toString
+	//Type: String
+    /**
+    * Description: this is the method to concatenate the information of the company.
+    * @return out String, it represents the information of the company.
+    */
 	public String toString(){
 		String out = "";
 		out += "Nit : "+nit+"\n";
