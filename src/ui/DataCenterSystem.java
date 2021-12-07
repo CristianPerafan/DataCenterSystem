@@ -278,8 +278,7 @@ public class DataCenterSystem{
 		column = sc.nextInt();
 		column = column-1;
 		sc.nextLine();
-         
-        System.out.println(building.findMiniRoomInformation(corridor,column));
+		System.out.println(building.findMiniRoomInformation(corridor,column));
 	}
 
 

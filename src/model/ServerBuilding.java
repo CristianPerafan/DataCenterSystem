@@ -114,8 +114,11 @@ public class ServerBuilding{
 
     boolean out = true;
 
-    if(corridor > miniRooms.length || corridor < 0 || column>miniRooms[0].length || column<0){
+    if(corridor > miniRooms.length || corridor < 0 ){
       out = false;  
+    }
+    if(column>miniRooms[0].length || column<0){
+      out = false;
     }
 
     return out;
@@ -294,10 +297,12 @@ public class ServerBuilding{
     double surcharge = 0;
 
     if(miniRooms[corridor][column]. getCorridor() >= 2 && 
-      miniRooms[corridor][column]. getCorridor() <= 6){
+        miniRooms[corridor][column]. getCorridor() <= 6){
+      
       price = miniRooms[corridor][column].getPrice();
       surcharge = (price*(LOCATED_SURCHARGE/100));
     }
+
     return surcharge;
   }
 
