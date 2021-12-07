@@ -2,6 +2,7 @@ package model;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+
 public class ServerBuilding{
     
   //Discount percentage for having a window in the mini room

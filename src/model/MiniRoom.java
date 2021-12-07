@@ -166,6 +166,7 @@ public class MiniRoom{
     }
 
 
+
   //Name:  calculateRamCapacityOfServers
   //Type: double
   /**
@@ -246,7 +247,6 @@ public class MiniRoom{
     out += "Price: "+price+"\n";
 
     return out;
-
   }
 
   //Name: toString

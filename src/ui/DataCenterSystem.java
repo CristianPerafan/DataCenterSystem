@@ -49,7 +49,7 @@ public class DataCenterSystem{
 			    "(3) Rent a mini room\n"+
 			    "(4) Cancel a rental\n"+
 			    "(5) Show a map of the data center\n"+
-			    "(6) Simulate turning the rooms ON\n"+
+			    "(6) Simulate turning the rooms OFF\n"+
 			    "(0) Exit"
 			    );
 		optionMenu= sc.nextInt();
@@ -288,7 +288,7 @@ public class DataCenterSystem{
     /** 
         * Description: this is the method to rent a mini room.
         */
-	private void  rentAMiniRoom(){
+	private void rentAMiniRoom(){
 
 		
 		int corridor,column,day,month,year, numServers;
@@ -306,7 +306,6 @@ public class DataCenterSystem{
 	    sc.nextLine();
 
 	    if(building.verifyHallAndColumnCorrectly(corridor,column)){
-	    	System.out.println("Yes");
 	    	if(building.veryfyIfTheMiniRoomIsRented(corridor,column)){
 	    		System.out.println("The mini room is not available to be rented");
 	    	}
@@ -391,11 +390,6 @@ public class DataCenterSystem{
 		            	building.AddServerToAMiniRoom(corridor,column,cacheMemory,amountProcessors,
 		            		ramMemory,amountDisks, diskCapacity,optionPro);
 		            }
-
-
-
-
-
 	    		    System.out.println("The mini room has been rented succesfully!!!");
 	    		}
 	    		else if(answer.equals("NOT")){
@@ -459,12 +453,7 @@ public class DataCenterSystem{
 		            	building.AddServerToAMiniRoom(corridor,column,cacheMemory,amountProcessors,
 		            		ramMemory,amountDisks, diskCapacity,optionPro);
 		            }
-
-
-
 	    		    System.out.println("The mini room has been rented succesfully!!!");
-	    		   
-
 	    		}
 	    		else{
 	    			System.out.println("Invalid option, you must enter (yes or not)!!!");
