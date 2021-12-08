@@ -72,6 +72,7 @@ public class Server{
 		
 		out += "Cache memory: "+cacheMemory+" GB\n";
 		out += "Number of processor: "+amountProcessors+"\n";
+		out += "Processor brand: "+proccesorType+"\n";
 		out += "RAM: "+ramMemory+" GB\n";
 		out += "Number of disks: "+amountDisks+"\n";
 		out += "Capacity of the disks: "+diskCapacity+" TB\n";

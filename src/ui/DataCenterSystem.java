@@ -272,11 +272,11 @@ public class DataCenterSystem{
 		System.out.println("/// FIND MINI ROOM INFORMATION ///");
 		System.out.println("Please, enter the num of the hall: ");
 		corridor = sc.nextInt();
-		corridor = corridor-1;
+		
 		sc.nextLine();
 		System.out.println("Enter the num of column: ");
 		column = sc.nextInt();
-		column = column-1;
+		
 		sc.nextLine();
 		System.out.println(building.findMiniRoomInformation(corridor,column));
 	}
@@ -297,14 +297,16 @@ public class DataCenterSystem{
 	    System.out.println("/// RENT A MINI ROOM ///");
 	    System.out.println("Please, enter the mini room corridor number: ");
 	    corridor = sc.nextInt();
-	    corridor = corridor-1;
+	    
 	    sc.nextLine();
 	    System.out.println("Please, enter the mini room column number: ");
 	    column = sc.nextInt();
-	    column = column-1;
+	    
 	    sc.nextLine();
 
 	    if(building.verifyHallAndColumnCorrectly(corridor,column)){
+	    	corridor = corridor-1;
+	    	column = column-1;
 	    	if(building.veryfyIfTheMiniRoomIsRented(corridor,column)){
 	    		System.out.println("The mini room is not available to be rented");
 	    	}
@@ -478,15 +480,15 @@ public class DataCenterSystem{
 		
 		System.out.println("Please, enter the corridor number of the mini room: ");
 		corridor = sc.nextInt();
-		corridor = corridor-1;
 		sc.nextLine();
 
 		System.out.println("Please, enter the column number of the mini room: ");
 		column = sc.nextInt();
-		column = column-1;
 		sc.nextLine();
 
 		if(building.verifyHallAndColumnCorrectly(corridor,column)){
+			corridor = corridor-1;
+			column = column-1;
 			if(building.veryfyIfTheMiniRoomIsRented(corridor,column)){
 				System.out.println(building.capacityInformationOfServers(corridor,column));
 				System.out.println("Are you sure you want to cancel the rental? yes or not" );

@@ -197,6 +197,7 @@ public class MiniRoom{
     available = Available.AVAILABLE;
     company = null;
     rack = null;
+    price = BASE_PRICE;
   }
 
   //Name: getCompanyName
@@ -260,7 +261,7 @@ public class MiniRoom{
 
     out += "Identifier : "+identifier+"\n";
     out += "Corridor : "+corridor+"\n";
-    out += "column : "+(column+1)+"\n";
+    out += "column : "+column+"\n";
     out += "Price : "+price+"\n";
     out += "Avalaible : " + available+"\n";
 

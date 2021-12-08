@@ -63,7 +63,7 @@ public class ServerBuilding{
            window = true;
         }
 
-        column = j;
+        column = (j+1);
     		miniRooms[i][j] = new MiniRoom(identifier,corridor,window,column);
 
     		identifier++;
@@ -112,12 +112,15 @@ public class ServerBuilding{
     */
   public boolean verifyHallAndColumnCorrectly(int corridor, int column){
 
+    corridor = corridor+1;
+    column = column+1;
+
     boolean out = true;
 
-    if(corridor > miniRooms.length || corridor < 0 ){
+    if(corridor > miniRooms.length || corridor <= 0 ){
       out = false;  
     }
-    if(column>miniRooms[0].length || column<0){
+    if(column>miniRooms[0].length || column <= 0){
       out = false;
     }
 
@@ -155,12 +158,18 @@ public class ServerBuilding{
     when the corridor or column number are not correct.
     */
   public String findMiniRoomInformation(int corridor, int column){
-    String out = "\n";
+    String out = "";
 
-    if(corridor > miniRooms.length || corridor < 0 || column>miniRooms[0].length || column<0){
-      System.out.println("Invalid option, you must enter the row and column number again!!!");
+    if(corridor > miniRooms.length || corridor <= 0 || column>miniRooms[0].length || column<=0){
+
+      out += "Invalid option, you must enter the row and column number again!!!";
+
     }
     else{
+
+      corridor = corridor-1;
+      column = column-1;
+
       out += "*** MINI ROOM INFORMATION ***\n";
       out += miniRooms[corridor][column].toString();
     }
@@ -188,12 +197,16 @@ public class ServerBuilding{
     miniRooms[corridor][column].addCompany(nit, companyName,day,month,year,numServers); 
 
     double newPrice = miniRooms[corridor][column].getPrice();
+
     double windowDiscount =  calculateMiniRoomWindowDiscount(corridor,column);
+
     double sevenDiscount = calculateMiniRoomSevenHallDiscount(corridor,column);
+
     double surchargeSecondAndSix = calculateMiniRoomSurcharge(corridor,column);
+
     double serverSurcharge = calculateSurchargeForServers(corridor,column,numServers);
 
-    newPrice = (((newPrice-windowDiscount)-sevenDiscount)+(surchargeSecondAndSix+serverSurcharge));
+    newPrice = ((newPrice+surchargeSecondAndSix+serverSurcharge)-windowDiscount)-sevenDiscount;
 
     miniRooms[corridor][column].setPrice(newPrice);      
   }
@@ -226,7 +239,7 @@ public class ServerBuilding{
     double surchargeSecondAndSix = calculateMiniRoomSurcharge(corridor,column);
     double serverSurcharge = calculateSurchargeForServers(corridor,column,numServers);
 
-    newPrice = (((newPrice-windowDiscount)-sevenDiscount)+(surchargeSecondAndSix+serverSurcharge));
+    newPrice = ((newPrice+surchargeSecondAndSix+serverSurcharge)-windowDiscount)-sevenDiscount;
 
     miniRooms[corridor][column].setPrice(newPrice);
   }
@@ -658,7 +671,7 @@ public class ServerBuilding{
 
     for(int i = 0;i<miniRooms.length;i++){
       for(int j = 0;j<miniRooms[0].length;j++){
-        if(miniRooms[i][j].getColumn() == column){
+        if(j == column){
           miniRooms[i][j].turnOff();
         }
       }
